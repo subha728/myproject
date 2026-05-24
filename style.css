@@ -1,0 +1,146 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+nav {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+    padding: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+/* HOME */
+#home {
+    text-align: center;
+    padding: 100px;
+}
+
+#home button {
+    padding: 12px 20px;   /* FIXED (removed space error) */
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ABOUT */
+#about {
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* SKILLS */
+#skills {
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background-color: black;
+    color: white;
+    padding: 20px;       /* FIXED */
+    border-radius: 10px; /* FIXED */
+    width: 100px;
+    text-align: center;
+}
+
+/* PROJECTS */
+#projects {
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px; /* FIXED */
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px lightgray;
+}
+
+/* CONTACT */
+#contact {
+    text-align: center;
+}
+
+form {
+    display: flex;        /* FIXED */
+    flex-direction: column;
+    width: 300px;
+    margin: auto;        /* FIXED */
+    gap: 15px;
+}
+
+input,
+textarea {
+    padding: 10px;
+}
+
+form button {
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* HOVER EFFECTS */
+.skill-card,
+.project-card {
+    transition: 0.3s;
+}
+
+.skill-card:hover,
+.project-card:hover {
+    background-color: black;
+    color: white;
+}
