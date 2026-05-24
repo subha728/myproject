@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
     res.send("Backend is working");
 });
 
+app.get("/api", (req, res) => {
+  res.json({ message: "API working" });
+});
+
 app.post("/contact", (req, res) => {
     console.log(req.body);
     res.send("Message received successfully");
