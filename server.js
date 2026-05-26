@@ -9,9 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://subha:durga321@cluster0.pm2tfls.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb://durga:subha321@ac-we9augc-shard-00-00.pm2tfls.mongodb.net:27017,ac-we9augc-shard-00-01.pm2tfls.mongodb.net:27017,ac-we9augc-shard-00-02.pm2tfls.mongodb.net:27017/portfolio?ssl=true&replicaSet=atlas-4roxyj-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0")
 .then(() => console.log("MongoDB Connected"))
 .catch((error) => console.log(error));
+
+// Model
+const Contact = mongoose.model("Contact", {
+    name: String,
+    email: String,
+    message: String
+});
 
 // Routes
 app.get("/", (req, res) => {
@@ -22,12 +29,23 @@ app.get("/api", (req, res) => {
     res.json({ message: "API working" });
 });
 
-app.post("/contact", (req, res) => {
-    console.log(req.body);
-    res.send("Message received successfully");
-});
+// Save contact data to MongoDB
+app.post("/contact", async (req, res) => {
+    try {
+        const newMessage = new Contact(req.body);
 
-// IMPORTANT: Render uses dynamic port
+        await newMessage.save();
+
+        console.log("Message Saved");
+
+        res.send("Message saved successfully");
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send("Error saving message");
+    }
+});
+// Port
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
