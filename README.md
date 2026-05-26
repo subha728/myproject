@@ -38,7 +38,7 @@ A responsive full-stack personal portfolio website designed to showcase projects
    https://sunny-bubblegum-4b49a1.netlify.app/
    
 ##Project Structure
-
+'''text
 portfolio-project/
 │
 ├── frontend/
